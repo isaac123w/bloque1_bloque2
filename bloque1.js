@@ -1,4 +1,4 @@
-// -------------------- BLOQUE 1: CADENAS CON PROMPT Y ALERT --------------------
+// -------------------- BLOQUE 1: CADENAS --------------------
 // 1. Contar caracteres de una palabra
 let palabra1 = prompt("Ingrese una palabra para contar sus letras:");
 let contador1 = 0;
