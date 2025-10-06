@@ -1,15 +1,41 @@
 // -------------------- BLOQUE 2: ARREGLOS --------------------
-// 11. Mostrar los divisores de cada número en un arreglo
-function ejercicio11(listaNumeros){
-  let resultado = {};
-  for (let numero of listaNumeros){
-    resultado[numero] = obtenerDivisores(numero);
-  }
-  return resultado;
-}
-// Prueba
-console.log(ejercicio11([6, 10]));
+// Ejercicio 11: Divisores de varios números
 
+// PSEUDOCODIGO
+// Definir entrada Como Cadena
+// Escribir "Ingresa varios números separados por comas:"
+// Leer entrada
+// numeros <- Dividir(entrada, ",")
+// Para i Desde 0 Hasta Longitud(numeros) - 1 Hacer
+//     num <- numeros[i]
+//     divisores <- Arreglo Vacío
+//     Para j Desde 1 Hasta num Hacer
+//         Si num % j = 0 Entonces
+//             Agregar j a divisores
+//         FinSi
+//     FinPara
+//     Escribir("Divisores de ", num, ": ", divisores)
+// FinPara
+
+function divisoresNumeros() {
+    let entrada = prompt("Ingresa varios números separados por comas:");
+
+    let numeros = entrada.split(",").map(Number);
+
+    for (let i = 0; i < numeros.length; i++) {
+        let num = numeros[i];
+        let divisores = [];
+
+        for (let j = 1; j <= num; j++) {
+            if (num % j === 0) {
+                divisores.push(j);
+            }
+        }
+
+        console.log(Divisores de ${num}: ${divisores.join(", ")});
+    }
+}
+divisoresNumeros();
 
 // 12. Sumar divisores de cada número en un arreglo
 function ejercicio12(listaNumeros){
