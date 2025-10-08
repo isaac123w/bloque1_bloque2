@@ -515,16 +515,46 @@ function tablasDeMultiplicar() {
 tablasDeMultiplicar();
 
 
-// 24. Calcular el factorial de cada número del arreglo
-function ejercicio24(listaNumeros){
-  let resultados = [];
-  for (let numero of listaNumeros){
-    resultados.push(calcularFactorial(numero));
-  }
-  return resultados;
+//Ejercicio 24: Factorial de elementos en un arreglo
+
+//PSEUDOCODIGO
+// INICIO
+// CREAR arreglo numeros vacío
+// CREAR arreglo factoriales vacío
+// LEER c ← pedir al usuario "¿Cuántos números quieres ingresar?"
+// PARA i DESDE 0 HASTA c - 1 HACER
+//     LEER num ← pedir al usuario "Ingrese el número i+1"
+//     AGREGAR num AL arreglo numeros
+// FIN PARA
+// PARA i DESDE 0 HASTA longitud(numeros) - 1 HACER
+//     fact ← 1
+//     PARA j DESDE 1 HASTA numeros[i] HACER
+//         fact ← fact * j
+//     FIN PARA
+//     AGREGAR fact AL arreglo factoriales
+// FIN PARA
+// MOSTRAR "Los factoriales son: " + factoriales EN UNA ALERTA
+// FIN
+
+
+//JAVASCRIPT
+function factorialDeArreglo() {
+    let numeros = [];
+    let factoriales = [];
+    let c = parseInt(prompt("¿Cuantos numeros quieres ingresar?"));
+    for (let i = 0; i < c; i++) {
+        let num = parseInt(prompt(Ingrese el numero ${i + 1}:));
+        numeros.push(num);
+    }
+    for (let i = 0; i < numeros.length; i++) {
+        let fact = 1;
+        for (let j = 1; j <= numeros[i]; j++) {
+            fact *= j; 
+        }
+        alert(${numeros[i]}! = ${fact});
+    }
 }
-// Prueba
-console.log(ejercicio24([4, 6]));
+factorialDeArreglo();
 
 
 // 25. Copiar solo los números pares en otro arreglo
