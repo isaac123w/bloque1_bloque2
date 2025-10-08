@@ -60,7 +60,7 @@ function repeticionLetra() {
         }
     }
 
-    alert(La letra "${letra}" aparece ${c} veces en la palabra "${palabra}".);
+    alert(`La letra "${letra}" aparece ${c} veces en la palabra "${palabra}".`);
 }
 repeticionLetra();
 
@@ -148,7 +148,7 @@ function obtenerIniciales() {
             iniciales += nombreCompleto[i + 1];
         }
     }
-    alert(Las iniciales son: ${iniciales.toUpperCase()});
+    alert(`Las iniciales son: ${iniciales.toUpperCase()}`);
 }
 obtenerIniciales();
 
@@ -255,7 +255,7 @@ function fraseMasLarga() {
             fraseMasLarga = frase;
         }
     }
-    alert(La frase con mayor cantidad de caracteres es: ${fraseMasLarga});
+    alert(`La frase con mayor cantidad de caracteres es: ${fraseMasLarga}`);
 }
 fraseMasLarga();
 
@@ -285,7 +285,7 @@ function contarCaracter() {
             c++;
         }
     }
-    alert(El carácter ${caracterElegido} aparece ${c} veces.);
+    alert(`El carácter ${caracterElegido} aparece ${c} veces.`);
 }
 contarCaracter();
 
@@ -308,7 +308,7 @@ function dividirOracion() {
     let palabras = oracion.split(" ");
 
     for (let i = 0; i < palabras.length; i++) {
-        alert(Palabra ${i + 1}: ${palabras[i]});
+        alert(`Palabra ${i + 1}: ${palabras[i]}`);
     }
 }
 dividirOracion();
