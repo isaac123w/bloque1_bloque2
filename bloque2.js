@@ -132,7 +132,7 @@ function numerosPerfectos() {
     let cantidad = parseInt(prompt("¿Cuántos números quieres ingresar?"));
 
     for (let i = 0; i < cantidad; i++) {
-        let num = parseInt(prompt(Ingresa el número ${i + 1}:));
+        let num = parseInt(prompt(`Ingresa el número ${i + 1}:`));
         numeros.push(num);
     }
 
@@ -187,7 +187,7 @@ function numerosPrimos() {
     let cantidad = parseInt(prompt("¿Cuántos números quieres ingresar?"));
 
     for (let i = 0; i < cantidad; i++) {
-        let num = parseInt(prompt(Ingresa el número ${i + 1}:));
+        let num = parseInt(prompt(`Ingresa el número ${i + 1}:`));
         numeros.push(num);
     }
 
@@ -720,7 +720,7 @@ function sumarArreglos() {
     for (let i = 0; i < numArreglos; i++) {
         let arr = [];
         for (let j = 0; j < n; j++) {
-            let num = parseInt(prompt(Ingrese el número ${j + 1} del arreglo ${i + 1}:));
+            let num = parseInt(prompt(`Ingrese el número ${j + 1} del arreglo ${i + 1}:`));
             arr.push(num);
         }
         arreglos.push(arr);
@@ -735,6 +735,6 @@ function sumarArreglos() {
         C.push(suma);
     }
 
-    alert(La suma de todos los arreglos es: ${C.join(", ")});
+    alert(`La suma de todos los arreglos es: ${C.join(", ")}`);
 }
 sumarArreglos();
