@@ -42,7 +42,7 @@ function divisoresNumeros() {
             }
         }
 
-        alert(Divisores de ${num}: ${divisores.join(", ")});
+        alert(`Divisores de ${num}: ${divisores.join(", ")}`);
     }
 }
 
@@ -95,8 +95,8 @@ function divisoresNumeros() {
                 sumaDivisores += j;
             }
         }
-        alert(Divisores de ${num}: ${divisores.join(", ")});
-        alert(Suma de divisores de ${num}: ${sumaDivisores});
+        alert(`Divisores de ${num}: ${divisores.join(", ")}`);
+        alert(`Suma de divisores de ${num}: ${sumaDivisores}`);
     }
 }
 divisoresNumeros();
@@ -147,9 +147,9 @@ function numerosPerfectos() {
         }
 
         if (sumaDivisores === num) {
-            alert(El ${num} sí es un número perfecto);
+            alert(`El ${num} sí es un número perfecto`);
         } else {
-            alert(El ${num} no es un número perfecto);
+            alert(`El ${num} no es un número perfecto`);
         }
     }
 }
@@ -204,45 +204,100 @@ function numerosPrimos() {
         }
     }
 
-    alert(Números primos: ${primos.join(", ")});
+    alert(`Números primos: ${primos.join(", ")}`);
 }
 numerosPrimos();
 
 
-// 15. Calcular factorial de los números del arreglo
-function ejercicio15(listaNumeros){
-  let resultado = {};
-  for (let numero of listaNumeros){
-    resultado[numero] = calcularFactorial(numero);
-  }
-  return resultado;
+//Ejercicio 15: Factorial de números en un arreglo
+
+//PSEUDOCODIGO
+// INICIO
+// CREAR arreglo numeros vacío
+// LEER c ← pedir al usuario "¿Cuántos números quieres ingresar?"
+// PARA i DESDE 0 HASTA c - 1 HACER
+//     LEER num ← pedir al usuario "Ingrese el número i+1"
+//     AGREGAR num AL arreglo numeros
+// FIN PARA
+// PARA i DESDE 0 HASTA longitud(numeros) - 1 HACER
+//     factorial ← 1
+//     PARA j DESDE 1 HASTA numeros[i] HACER
+//         factorial ← factorial * j
+//     FIN PARA
+//     MOSTRAR "numeros[i]! = factorial" EN UNA ALERTA
+// FIN PARA
+// FIN
+
+
+//JAVASCRIPT
+function factorialArreglo() {
+    let numeros = [ ]
+    let c = parseInt(prompt("¿Cuántos números quieres ingresar?"))
+    for (let i=0; i<c; i++){
+        let num = parseInt(prompt(Ingrese el número ${i+1}))
+        numeros.push(num)
+    }
+    for (let i = 0; i < numeros.length; i++) {
+        let factorial = 1;
+        
+        for (let j = 1; j <= numeros[i]; j++) {
+            factorial *= j
+        }
+        alert(`${numeros[i]}! = ${factorial}`);
+    }
 }
-// Prueba
-console.log(ejercicio15([3, 5]));
+factorialArreglo();
 
 
-// 16. Invertir los números del arreglo (sin usar String)
-function ejercicio16(listaNumeros){
-  let resultado = [];
+//Ejercicio 16: Invertir Numeros de un arreglo
 
-  for (let numero of listaNumeros){
-    let numeroInvertido = 0;
-    let temporal = numero;
+//PSEUDOCODIGO
+// INICIO
+// CREAR arreglo numeros vacío
+// LEER c ← pedir al usuario "¿Cuántos números quieres ingresar?"
+// PARA i DESDE 0 HASTA c - 1 HACER
+//     LEER num ← pedir al usuario "Ingrese el número i+1"
+//     AGREGAR num AL arreglo numeros
+// FIN PARA
+// CREAR arreglo invertidos vacío
+// PARA i DESDE 0 HASTA longitud(numeros) - 1 HACER
+//     numStr ← convertir numeros[i] a string
+//     invStr ← ""
+//     PARA j DESDE longitud(numStr)-1 HASTA 0 HACER
+//         invStr ← invStr + numStr[j]
+//     FIN PARA
+//     AGREGAR convertir invStr a número AL arreglo invertidos
+// FIN PARA
+// MOSTRAR "Números originales: " + numeros EN ALERTA
+// MOSTRAR "Números invertidos: " + invertidos EN ALERTA
+// FIN
 
-    while (temporal > 0){
-      let digito = temporal % 10;
-      numeroInvertido = numeroInvertido * 10 + digito;
-      temporal = Math.floor(temporal / 10);
+
+//JAVASCRIPT
+function invertirNumerosArreglo() {
+    let numeros = [];
+    let c = parseInt(prompt("¿Cuántos números quieres ingresar?"));
+
+    for (let i = 0; i < c; i++) {
+        let num = parseInt(prompt(Ingrese el número ${i + 1}:));
+        numeros.push(num);
     }
 
-    resultado.push(numeroInvertido);
-  }
+    let invertidos = [];
+    for (let i = 0; i < numeros.length; i++) {
+        let numeStr = numeros[i].toString(); 
+        let invertirStr = ""; 
 
-  return resultado;
+        for (let j = numeStr.length - 1; j >= 0; j--) {
+            invertirStr += numeStr[j];
+        }
+
+        invertidos.push(parseInt(invertirStr));
+    }
+    alert(`Números originales: ${numeros.join(", ")}`);
+    alert(`Números invertidos: ${invertidos.join(", ")}`);
 }
-// Prueba
-console.log(ejercicio16([123, 450]));
-
+invertirNumerosArreglo();
 
 // Ejercicio 17: Promedio de un arreglo
 
@@ -279,7 +334,7 @@ function promedioArreglo() {
     }
 
     let promedio = suma / numeros.length;
-    alert(El promedio es ${promedio}.);
+    alert(`El promedio es ${promedio}.`);
 }
 promedioArreglo();
 
@@ -321,7 +376,7 @@ function contarImpares() {
         }
     }
 
-    alert(Cantidad de impares: ${contador});
+    alert(`Cantidad de impares: ${contador}`);
 }
 contarImpares();
 
@@ -362,7 +417,7 @@ function contarMayoresDeEdad() {
             contador++;
         }
     }
-    alert(Mayores de edad: ${contador});
+    alert(`Mayores de edad: ${contador}`);
 }
 contarMayoresDeEdad();
 
@@ -414,9 +469,9 @@ function buscarValor() {
     }
 
     if (encontrado) {
-        alert(El valor ${valorBuscado} se encuentra en el arreglo);
+        alert(`El valor ${valorBuscado} se encuentra en el arreglo`);
     } else {
-        alert(El valor ${valorBuscado} NO se encuentra en el arreglo);
+        alert(`El valor ${valorBuscado} NO se encuentra en el arreglo`);
     }
 }
 buscarValor();
@@ -449,7 +504,7 @@ function concatenarPalabrasJoin() {
 
     // Concatenar palabras
     let resultado = palabras.join(" ");
-    alert(Resultado: ${resultado});
+    alert(`Resultado: ${resultado}`);
 }
 
 concatenarPalabrasJoin();
@@ -509,7 +564,7 @@ function tablasDeMultiplicar() {
                 tabla += ", "
             }
         }
-        alert(Tabla de ${numeros[i]}: ${tabla});
+        alert(`Tabla de ${numeros[i]}: ${tabla}`);
     }
 }
 tablasDeMultiplicar();
@@ -551,24 +606,49 @@ function factorialDeArreglo() {
         for (let j = 1; j <= numeros[i]; j++) {
             fact *= j; 
         }
-        alert(${numeros[i]}! = ${fact});
+        alert(`${numeros[i]}! = ${fact}`);
     }
 }
 factorialDeArreglo();
 
 
-// 25. Copiar solo los números pares en otro arreglo
-function ejercicio25(listaNumeros){
-  let numerosPares = [];
-  for (let numero of listaNumeros){
-    if (numero % 2 === 0){
-      numerosPares.push(numero);
+//Ejercicio 25: Copiar números pares a un nuevo arreglo
+
+//PSEUDOCODIGO
+// INICIO
+// CREAR arreglo numeros vacío
+// CREAR arreglo pares vacío
+// LEER c ← pedir al usuario "¿Cuántos números quieres ingresar?"
+// PARA i DESDE 0 HASTA c - 1 HACER
+//     LEER num ← pedir al usuario "Ingrese el número i+1"
+//     AGREGAR num AL arreglo numeros
+// FIN PARA
+// PARA i DESDE 0 HASTA longitud(numeros) - 1 HACER
+//     SI numeros[i] MOD 2 = 0 ENTONCES
+//         AGREGAR numeros[i] AL arreglo pares
+//     FIN SI
+// FIN PARA
+// MOSTRAR "Los números pares son: " + pares EN UN ALERT
+// FIN
+
+
+//JAVASCRIPT
+function copiarPares() {
+    let numeros = []
+    let pares = []
+    let c = parseInt(prompt("¿Cuantos numeros quieres ingresar?"));
+    for (let i = 0; i < c; i++) {
+        let num = parseInt(prompt(Ingrese el numero ${i + 1}:));
+        numeros.push(num);
     }
-  }
-  return numerosPares;
+    for (let i = 0; i < numeros.length; i++) {
+        if (numeros[i] % 2 === 0) { 
+            pares.push(numeros[i])
+        }
+    }
+    alert(`los numeros pares son: ${pares.join(",")}`);
 }
-// Prueba
-console.log(ejercicio25([3, 8, 11, 14, 25]));
+copiarPares();
 
 
 // 26. Sumar dos arreglos (sin Math.min)
