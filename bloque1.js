@@ -250,7 +250,7 @@ function fraseMasLarga() {
     let fraseMasLarga = "";
 
     for (let i = 1; i <= cantidad; i++) {
-        let frase = prompt(Ingresa la frase ${i}:);
+        let frase = prompt(`Ingresa la frase ${i}:`);
         if (frase.length > fraseMasLarga.length) {
             fraseMasLarga = frase;
         }
