@@ -22,7 +22,7 @@ let c = 0;
     for (let i = 0; i < palabra.length; i++) {
         c++;
     }
-    alert(La palabra tiene ${c} caracteres);
+    alert(`La palabra tiene ${c} caracteres`);
 }
 contadorLetras();
 
