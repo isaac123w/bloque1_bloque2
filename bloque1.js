@@ -188,7 +188,7 @@ function reemplazarCaracteres() {
         }
     }
 
-    alert(El texto modificado es: ${textoNuevo});
+    alert(`El texto modificado es: ${textoNuevo}`);
 }
 reemplazarCaracteres();
 
