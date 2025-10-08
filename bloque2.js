@@ -34,7 +34,7 @@ function divisoresNumeros() {
 
     for (let i = 0; i < numeros.length; i++) {
         let num = numeros[i];
-        let divisores = [];
+        let divisores = [];   
 
         for (let j = 1; j <= num; j++) {
             if (num % j === 0) {
@@ -467,20 +467,52 @@ function ejercicio22(listaNumeros){
 console.log(ejercicio22([2, 3, 4]));
 
 
-// 23. Mostrar tabla de multiplicar (1 al 10) de cada número
-function ejercicio23(listaNumeros){
-  let tablas = {};
-  for (let numero of listaNumeros){
-    let tabla = [];
-    for (let i = 1; i <= 10; i++){
-      tabla.push(numero * i);
+//Ejercicio 23: Tabla de multiplicar de elementos
+
+//PSEUDOCODIGO
+// INICIO
+// CREAR arreglo numeros vacío
+// LEER limite ← pedir al usuario "Ingrese el limite de la tabla"
+// LEER c ← pedir al usuario "¿Cuántos números quieres para generar su tabla?"
+// PARA i DESDE 0 HASTA c - 1 HACER
+//     LEER num ← pedir al usuario "Ingrese el número i+1"
+//     AGREGAR num AL arreglo numeros
+// FIN PARA
+// PARA i DESDE 0 HASTA longitud(numeros) - 1 HACER
+//     tabla ← ""
+//     PARA j DESDE 1 HASTA limite HACER
+//         tabla ← tabla + (numeros[i] * j)
+//         SI j < limite ENTONCES
+//             tabla ← tabla + ", "
+//         FIN SI
+//     FIN PARA
+//     MOSTRAR "Tabla de numeros[i]: " + tabla EN CONSOLA
+// FIN PARA
+// FIN
+
+//JAVASCRIPT
+function tablasDeMultiplicar() {
+    let numeros = [];
+    let limite = parseInt(prompt("Ingrese el limite de la tabla"))
+     let c = parseInt(prompt("¿Cuantos numeros quieres para generar su tabla?"));
+
+    for (let i = 0; i < c; i++) {
+        let num = parseInt(prompt(Ingrese el numero ${i + 1}:));
+        numeros.push(num);
     }
-    tablas[numero] = tabla;
-  }
-  return tablas;
+
+    for (let i = 0; i < numeros.length; i++) {
+        let tabla = "";
+        for (let j = 1; j <= limite; j++) {
+            tabla += numeros[i] * j
+            if (j < limite) {
+                tabla += ", "
+            }
+        }
+        alert(Tabla de ${numeros[i]}: ${tabla});
+    }
 }
-// Prueba
-console.log(ejercicio23([3, 5]));
+tablasDeMultiplicar();
 
 
 // 24. Calcular el factorial de cada número del arreglo
