@@ -510,16 +510,49 @@ function concatenarPalabrasJoin() {
 concatenarPalabrasJoin();
 
 
-// 22. Calcular el cubo de cada número del arreglo
-function ejercicio22(listaNumeros){
-  let cubos = [];
-  for (let numero of listaNumeros){
-    cubos.push(numero * numero * numero);
-  }
-  return cubos;
+// Ejercicio 22: Cubo de elementos
+
+// PSEUDOCODIGO
+// INICIO
+// CREAR arreglo numeros vacío
+// CREAR arreglo cubos vacío
+// LEER c ← pedir al usuario "¿Cuántos números quieres ingresar?"
+// PARA i DESDE 0 HASTA c - 1 HACER
+//     LEER num ← pedir al usuario "Ingrese el número i+1"
+//     AGREGAR num AL arreglo numeros
+// FIN PARA
+// PARA i DESDE 0 HASTA longitud(numeros) - 1 HACER
+//     AGREGAR numeros[i] ^ 3 AL arreglo cubos
+// FIN PARA
+// PARA i DESDE 0 HASTA longitud(numeros) - 1 HACER
+//     MOSTRAR "El cubo de numeros[i] es cubos[i]" EN UN ALERT
+// FIN PARA
+// FIN
+
+
+// JAVASCRIPT
+function cuboDeElementos() {
+    let numeros = [];
+    let cubos = [];
+    let c = parseInt(prompt("¿Cuántos números quieres ingresar?"));
+
+    // Pedir los números al usuario
+    for (let i = 0; i < c; i++) {
+        let num = parseInt(prompt(Ingrese el número ${i + 1}:));
+        numeros.push(num);
+    }
+
+    // Calcular los cubos
+    for (let i = 0; i < numeros.length; i++) {
+        cubos.push(numeros[i] ** 3);
+    }
+
+    // Mostrar los resultados
+    for (let i = 0; i < numeros.length; i++) {
+        alert(El cubo de ${numeros[i]} es ${cubos[i]});
+    }
 }
-// Prueba
-console.log(ejercicio22([2, 3, 4]));
+cuboDeElementos();
 
 
 //Ejercicio 23: Tabla de multiplicar de elementos
@@ -651,21 +684,57 @@ function copiarPares() {
 copiarPares();
 
 
-// 26. Sumar dos arreglos (sin Math.min)
-function ejercicio26(arregloA, arregloB){
-  let tamaño;
-  if (arregloA.length < arregloB.length){
-    tamaño = arregloA.length;
-  } else {
-    tamaño = arregloB.length;
-  }
+//Ejercicio 26: Suma de arreglos
 
-  let arregloSuma = [];
-  for (let i = 0; i < tamaño; i++){
-    arregloSuma.push(arregloA[i] + arregloB[i]);
-  }
+//PSEUDOCODIGO
+// INICIO
+// LEER numArreglos ← pedir al usuario "¿Cuántos arreglos quieres sumar?"
+// LEER n ← pedir al usuario "¿Cuántos números tendrá cada arreglo?"
+// CREAR arreglo arreglos vacío
+// PARA i DESDE 0 HASTA numArreglos - 1 HACER
+//     CREAR arreglo arr vacío
+//     PARA j DESDE 0 HASTA n - 1 HACER
+//         LEER num ← pedir al usuario "Ingrese el número j+1 del arreglo i+1"
+//         AGREGAR num AL arreglo arr
+//     FIN PARA
+//     AGREGAR arr AL arreglo arreglos
+// FIN PARA
+// CREAR arreglo C vacío
+// PARA i DESDE 0 HASTA n - 1 HACER
+//     suma ← 0
+//     PARA j DESDE 0 HASTA numArreglos - 1 HACER
+//         suma ← suma + arreglos[j][i]
+//     FIN PARA
+//     AGREGAR suma AL arreglo C
+// FIN PARA
+// MOSTRAR "La suma de todos los arreglos es: " + C EN UN ALERT
+// FIN
 
-  return arregloSuma;
+
+//JAVASCRIPT
+function sumarArreglos() {
+    let numArreglos = parseInt(prompt("¿Cuántos arreglos quieres sumar?"));
+    let n = parseInt(prompt("¿Cuántos números tendrá cada arreglo?"));
+    let arreglos = []; 
+
+    for (let i = 0; i < numArreglos; i++) {
+        let arr = [];
+        for (let j = 0; j < n; j++) {
+            let num = parseInt(prompt(Ingrese el número ${j + 1} del arreglo ${i + 1}:));
+            arr.push(num);
+        }
+        arreglos.push(arr);
+    }
+
+    let C = [];
+    for (let i = 0; i < n; i++) {
+        let suma = 0;
+        for (let j = 0; j < numArreglos; j++) {
+            suma += arreglos[j][i];
+        }
+        C.push(suma);
+    }
+
+    alert(La suma de todos los arreglos es: ${C.join(", ")});
 }
-// Prueba
-console.log(ejercicio26([2, 4, 6], [1, 3, 5]));
+sumarArreglos();
