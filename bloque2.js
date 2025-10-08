@@ -2,25 +2,35 @@
 // Ejercicio 11: Divisores de varios números
 
 // PSEUDOCODIGO
-// Definir entrada Como Cadena
-// Escribir "Ingresa varios números separados por comas:"
-// Leer entrada
-// numeros <- Dividir(entrada, ",")
-// Para i Desde 0 Hasta Longitud(numeros) - 1 Hacer
-//     num <- numeros[i]
-//     divisores <- Arreglo Vacío
-//     Para j Desde 1 Hasta num Hacer
-//         Si num % j = 0 Entonces
-//             Agregar j a divisores
-//         FinSi
-//     FinPara
-//     Escribir("Divisores de ", num, ": ", divisores)
-// FinPara
+// INICIO
+// CREAR arreglo numeros vacío
+// LEER cantidad ← pedir al usuario "¿Cuántos números quieres ingresar?"
+// PARA i DESDE 0 HASTA cantidad - 1 HACER
+//     LEER num ← pedir al usuario "Ingresa el número i+1"
+//     AGREGAR num AL arreglo numeros
+// FIN PARA
+// PARA i DESDE 0 HASTA longitud(numeros) - 1 HACER
+//     num ← numeros[i]
+//     CREAR arreglo divisores vacío
+//     PARA j DESDE 1 HASTA num HACER
+//         SI num MOD j = 0 ENTONCES
+//             AGREGAR j AL arreglo divisores
+//         FIN SI
+//     FIN PARA
+//     MOSTRAR "Divisores de num: " + divisores EN UNA ALERTA
+// FIN PARA
+// FIN
 
+
+// JAVASCRIPT
 function divisoresNumeros() {
-    let entrada = prompt("Ingresa varios números separados por comas:");
+    let numeros = [];
+    let cantidad = parseInt(prompt("¿Cuántos números quieres ingresar?"));
 
-    let numeros = entrada.split(",").map(Number);
+    for (let i = 0; i < cantidad; i++) {
+        let num = parseInt(prompt(Ingresa el número ${i + 1}:));
+        numeros.push(num);
+    }
 
     for (let i = 0; i < numeros.length; i++) {
         let num = numeros[i];
@@ -32,56 +42,171 @@ function divisoresNumeros() {
             }
         }
 
-        console.log(Divisores de ${num}: ${divisores.join(", ")});
+        alert(Divisores de ${num}: ${divisores.join(", ")});
+    }
+}
+
+divisoresNumeros();
+
+
+// Ejercicio 12: Suma de divisores en un arreglo
+
+// PSEUDOCODIGO
+// INICIO
+// CREAR arreglo numeros vacío
+// LEER cantidad ← pedir al usuario "¿Cuántos números quieres ingresar?"
+// PARA i DESDE 0 HASTA cantidad - 1 HACER
+//     LEER num ← pedir al usuario "Ingresa el número i+1"
+//     AGREGAR num AL arreglo numeros
+// FIN PARA
+// PARA i DESDE 0 HASTA longitud(numeros) - 1 HACER
+//     num ← numeros[i]
+//     CREAR arreglo divisores vacío
+//     sumaDivisores ← 0
+//     PARA j DESDE 1 HASTA num HACER
+//         SI num MOD j = 0 ENTONCES
+//             AGREGAR j AL arreglo divisores
+//             sumaDivisores ← sumaDivisores + j
+//         FIN SI
+//     FIN PARA
+//     MOSTRAR "Divisores de num: " + divisores EN UNA ALERTA
+//     MOSTRAR "Suma de divisores de num: " + sumaDivisores EN UNA ALERTA
+// FIN PARA
+// FIN
+
+
+// JAVASCRIPT
+function divisoresNumeros() {
+    let numeros = [];
+    let cantidad = parseInt(prompt("¿Cuántos números quieres ingresar?"));
+
+    for (let i = 0; i < cantidad; i++) {
+        let num = parseInt(prompt(Ingresa el número ${i + 1}:));
+        numeros.push(num);
+    }
+    for (let i = 0; i < numeros.length; i++) {
+        let num = numeros[i];
+        let divisores = [];
+        let sumaDivisores = 0;
+
+        for (let j = 1; j <= num; j++) {
+            if (num % j === 0) {
+                divisores.push(j);
+                sumaDivisores += j;
+            }
+        }
+        alert(Divisores de ${num}: ${divisores.join(", ")});
+        alert(Suma de divisores de ${num}: ${sumaDivisores});
     }
 }
 divisoresNumeros();
 
-// 12. Sumar divisores de cada número en un arreglo
-function ejercicio12(listaNumeros){
-  let resultado = {};
-  for (let numero of listaNumeros){
-    resultado[numero] = sumarDivisores(numero);
-  }
-  return resultado;
-}
-// Prueba
-console.log(ejercicio12([6, 12]));
+// Ejercicio 13: Números perfectos en un arreglo
+
+// PSEUDOCODIGO 
+// INICIO
+// CREAR arreglo numeros vacío
+// LEER cantidad ← pedir al usuario "¿Cuántos números quieres ingresar?"
+// PARA i DESDE 0 HASTA cantidad - 1 HACER
+//     LEER num ← pedir al usuario "Ingresa el número i+1"
+//     AGREGAR num AL arreglo numeros
+// FIN PARA
+// PARA i DESDE 0 HASTA longitud(numeros) - 1 HACER
+//     num ← numeros[i]
+//     sumaDivisores ← 0
+//     PARA j DESDE 1 HASTA num - 1 HACER
+//         SI num MOD j = 0 ENTONCES
+//             sumaDivisores ← sumaDivisores + j
+//         FIN SI
+//     FIN PARA
+//     SI sumaDivisores = num Entonces
+//         Escribir(num, "es un número perfecto")
+//     FinSi
+// FinPara
+// FIN
 
 
-// 13. Mostrar los números perfectos del arreglo
-function ejercicio13(listaNumeros){
-  let numerosPerfectos = [];
+// JAVASCRIPT
+function numerosPerfectos() {
+    let numeros = [];
+    let cantidad = parseInt(prompt("¿Cuántos números quieres ingresar?"));
 
-  for (let numero of listaNumeros){
-    let sumaDivisoresPropios = 0;
-    for (let i = 1; i < numero; i++){
-      if (numero % i === 0){
-        sumaDivisoresPropios += i;
-      }
+    for (let i = 0; i < cantidad; i++) {
+        let num = parseInt(prompt(Ingresa el número ${i + 1}:));
+        numeros.push(num);
     }
-    if (sumaDivisoresPropios === numero){
-      numerosPerfectos.push(numero);
+
+    for (let i = 0; i < numeros.length; i++) {
+        let num = numeros[i];
+        let sumaDivisores = 0;
+
+        for (let j = 1; j < num; j++) {
+            if (num % j === 0) {
+                sumaDivisores += j;
+            }
+        }
+
+        if (sumaDivisores === num) {
+            alert(El ${num} sí es un número perfecto);
+        } else {
+            alert(El ${num} no es un número perfecto);
+        }
     }
-  }
-  return `Números perfectos: ${numerosPerfectos.join(", ")}`;
 }
-// Prueba
-console.log(ejercicio13([6, 10, 28]));
+numerosPerfectos();
+
+//Ejercicio 14: Números primos en un arreglo
+
+//PSEUDOCODIGO
+// INICIO
+// CREAR arreglo numeros vacío
+// LEER cantidad ← pedir al usuario "¿Cuántos números quieres ingresar?"
+// PARA i DESDE 0 HASTA cantidad - 1 HACER
+//     LEER num ← pedir al usuario "Ingresa el número i+1"
+//     AGREGAR num AL arreglo numeros
+// FIN PARA
+// primos ← arreglo vacío
+// PARA i DESDE 0 HASTA longitud(numeros) - 1 HACER
+//     divisores ← 0
+//     PARA j DESDE 1 HASTA numeros[i] HACER
+//         SI numeros[i] MOD j = 0 ENTONCES
+//             divisores ← divisores + 1
+//         FIN SI
+//     FIN PARA
+//     SI divisores = 2 ENTONCES
+//         AGREGAR numeros[i] AL arreglo primos
+//     FIN SI
+// FIN PARA
+// MOSTRAR "Números primos: " + primos EN UNA ALERTA
+// FIN
 
 
-// 14. Mostrar los números primos del arreglo
-function ejercicio14(listaNumeros){
-  let primos = [];
-  for (let numero of listaNumeros){
-    if (esNumeroPrimo(numero)){
-      primos.push(numero);
+//JAVASCRIPT
+function numerosPrimos() {
+    let numeros = [];
+    let cantidad = parseInt(prompt("¿Cuántos números quieres ingresar?"));
+
+    for (let i = 0; i < cantidad; i++) {
+        let num = parseInt(prompt(Ingresa el número ${i + 1}:));
+        numeros.push(num);
     }
-  }
-  return `Números primos: ${primos.join(", ")}`;
+
+    let primos = [];
+    for (let i = 0; i < numeros.length; i++) {
+        let divisores = 0;
+        for (let j = 1; j <= numeros[i]; j++) {
+            if (numeros[i] % j === 0) {
+                divisores++;
+            }
+        }
+        if (divisores === 2) {
+            primos.push(numeros[i]);
+        }
+    }
+
+    alert(Números primos: ${primos.join(", ")});
 }
-// Prueba
-console.log(ejercicio14([7, 8, 13]));
+numerosPrimos();
 
 
 // 15. Calcular factorial de los números del arreglo
@@ -119,76 +244,215 @@ function ejercicio16(listaNumeros){
 console.log(ejercicio16([123, 450]));
 
 
-// 17. Calcular promedio de un arreglo
-function ejercicio17(listaNumeros){
-  if (listaNumeros.length === 0) return "El arreglo está vacío.";
-  let suma = 0;
+// Ejercicio 17: Promedio de un arreglo
 
-  for (let numero of listaNumeros){
-    suma += numero;
-  }
+// PSEUDOCODIGO
+// INICIO
+// CREAR arreglo numeros vacío
+// LEER cantidad ← pedir al usuario "¿Cuántos números quieres ingresar?"
+// PARA i DESDE 1 HASTA cantidad HACER
+// LEER num ← pedir al usuario "Ingresa el número i"
+// AGREGAR num AL arreglo numeros
+// FIN PARA
+// suma ← 0
+// PARA i DESDE 0 HASTA longitud(numeros) - 1 HACER
+//     suma ← suma + numeros[i]
+// FIN PARA
+// promedio ← suma / longitud(numeros)
+// MOSTRAR "El promedio es " + promedio EN UNA ALERTA
+// FIN
 
-  let promedio = suma / listaNumeros.length;
-  return `El promedio es ${promedio}.`;
-}
-// Prueba
-console.log(ejercicio17([5, 7, 9, 3, 6]));
 
+// JAVASCRIPT
+function promedioArreglo() {
+    let numeros = [];
+    let cantidad = parseInt(prompt("¿Cuántos números quieres ingresar?"));
 
-// 18. Contar números impares en un arreglo
-function ejercicio18(listaNumeros){
-  let contadorImpares = 0;
-  for (let numero of listaNumeros){
-    if (numero % 2 !== 0){
-      contadorImpares++;
+    for (let i = 0; i < cantidad; i++) {
+        let num = parseInt(prompt(Ingresa el número ${i + 1}:));
+        numeros.push(num);
     }
-  }
-  return `Cantidad de números impares: ${contadorImpares}`;
-}
-// Prueba
-console.log(ejercicio18([2, 5, 7, 8, 10]));
 
-
-// 19. Contar mayores de edad (≥ 18 años)
-function ejercicio19(listaEdades){
-  let contadorMayores = 0;
-  for (let edad of listaEdades){
-    if (edad >= 18){
-      contadorMayores++;
+    let suma = 0;
+    for (let i = 0; i < numeros.length; i++) {
+        suma += numeros[i];
     }
-  }
-  return `Cantidad de personas mayores de edad: ${contadorMayores}`;
+
+    let promedio = suma / numeros.length;
+    alert(El promedio es ${promedio}.);
 }
-// Prueba
-console.log(ejercicio19([15, 22, 18, 30, 12]));
+promedioArreglo();
 
 
-// 20. Buscar un valor dentro de un arreglo
-function ejercicio20(lista, valorBuscado){
-  for (let elemento of lista){
-    if (elemento === valorBuscado){
-      return `El valor ${valorBuscado} sí existe en el arreglo.`;
+//18.Contar impares en un arreglo
+
+//PSEUDOCODIGO
+// INICIO
+// CREAR arreglo numeros vacío
+// LEER cantidad ← pedir al usuario "¿Cuántos números quieres ingresar?"
+// PARA i DESDE 0 HASTA cantidad - 1 HACER
+//     LEER num ← pedir al usuario "Ingresa el número i+1"
+//     AGREGAR num AL arreglo numeros
+// FIN PARA
+// contador ← 0
+// PARA i DESDE 0 HASTA longitud(numeros) - 1 HACER
+//     SI numeros[i] MOD 2 ≠ 0 ENTONCES
+//         contador ← contador + 1
+//     FIN SI
+// FIN PARA
+// MOSTRAR "Cantidad de impares: " + contador EN UNA ALERTA
+// FIN
+
+
+// JAVASCRIPT
+function contarImpares() {
+    let numeros = [];
+    let cantidad = parseInt(prompt("¿Cuántos números quieres ingresar?"));
+
+    for (let i = 0; i < cantidad; i++) {
+        let num = parseInt(prompt(Ingresa el número ${i + 1}:));
+        numeros.push(num);
     }
-  }
-  return `El valor ${valorBuscado} no existe en el arreglo.`;
-}
-// Prueba
-console.log(ejercicio20([4, 8, 15, 23], 15));
 
-
-// 21. Unir todas las palabras de un arreglo (forma básica)
-function ejercicio21(listaPalabras){
-  let frase = "";
-  for (let i = 0; i < listaPalabras.length; i++){
-    frase += listaPalabras[i];
-    if (i < listaPalabras.length - 1){
-      frase += " ";
+    let contador = 0;
+    for (let i = 0; i < numeros.length; i++) {
+        if (numeros[i] % 2 !== 0) {
+            contador++;
+        }
     }
-  }
-  return frase;
+
+    alert(Cantidad de impares: ${contador});
 }
-// Prueba
-console.log(ejercicio21(["Me", "gusta", "programar"]));
+contarImpares();
+
+
+//Ejercicio 19: Mayores de edad un arreglo
+
+//PSEUDOCODIGO
+// INICIO
+// CREAR arreglo edades vacío
+// LEER cantidad ← pedir al usuario "¿Cuántas edades quieres ingresar?"
+// PARA i DESDE 0 HASTA cantidad - 1 HACER
+//     LEER edad ← pedir al usuario "Ingresa la edad i+1"
+//     AGREGAR edad AL arreglo edades
+// FIN PARA
+// contador ← 0
+// PARA i DESDE 0 HASTA longitud(edades) - 1 HACER
+//     SI edades[i] >= 18 ENTONCES
+//         contador ← contador + 1
+//     FIN SI
+// FIN PARA
+// MOSTRAR "Mayores de edad: " + contador EN UNA ALERTA
+// FIN
+
+
+//JAVASCRIPT
+function contarMayoresDeEdad() {
+    let edades = [];
+    let cantidad = parseInt(prompt("¿Cuántas edades quieres ingresar?"));
+
+    for (let i = 0; i < cantidad; i++) {
+        let edad = parseInt(prompt(Ingresa la edad ${i + 1}:));
+        edades.push(edad);
+    }
+
+    let contador = 0;
+    for (let i = 0; i < edades.length; i++) {
+        if (edades[i] >= 18) {
+            contador++;
+        }
+    }
+    alert(Mayores de edad: ${contador});
+}
+contarMayoresDeEdad();
+
+
+//Ejercicio 20: Buscar un valor en el arreglo
+
+//PSEUDOCODIGO
+// INICIO
+// CREAR arreglo numeros vacío
+// LEER cantidad ← pedir al usuario "¿Cuántos números quieres ingresar?"
+// PARA i DESDE 0 HASTA cantidad - 1 HACER
+//     LEER num ← pedir al usuario "Ingresa el número i+1"
+//     AGREGAR num AL arreglo numeros
+// FIN PARA
+// LEER valorBuscado ← pedir al usuario "Ingresa el valor que quieres buscar"
+// encontrado ← falso
+// PARA i DESDE 0 HASTA longitud(numeros) - 1 HACER
+//     SI numeros[i] = valorBuscado ENTONCES
+//         encontrado ← verdadero
+//         SALIR DEL BUCLE
+//     FIN SI
+// FIN PARA
+// SI encontrado = verdadero ENTONCES
+//     MOSTRAR "El valor valorBuscado se encuentra en el arreglo" EN UNA ALERTA
+// SINO
+//     MOSTRAR "El valor valorBuscado NO se encuentra en el arreglo" EN UNA ALERTA
+// FIN SI
+// FIN
+
+
+//JAVASCRIPT
+function buscarValor() {
+    let numeros = [];
+    let cantidad = parseInt(prompt("¿Cuántos números quieres ingresar?"));
+
+    // Pedir los números uno por uno
+    for (let i = 0; i < cantidad; i++) {
+        let num = parseInt(prompt(Ingresa el número ${i + 1}:));
+        numeros.push(num);
+    }
+
+    let valorBuscado = parseInt(prompt("Ingresa el valor que quieres buscar:"));
+    let encontrado = false;
+    for (let i = 0; i < numeros.length; i++) {
+        if (numeros[i] === valorBuscado) {
+            encontrado = true;
+            break;
+        }
+    }
+
+    if (encontrado) {
+        alert(El valor ${valorBuscado} se encuentra en el arreglo);
+    } else {
+        alert(El valor ${valorBuscado} NO se encuentra en el arreglo);
+    }
+}
+buscarValor();
+
+
+//Ejercicio 21: Concatenar palabras de un arreglo
+
+//PSEUDOCODIGO
+// INICIO
+// CREAR arreglo palabras vacío
+// LEER cantidad ← pedir al usuario "¿Cuántas palabras quieres ingresar?"
+// PARA i DESDE 0 HASTA cantidad - 1 HACER
+//     LEER palabra ← pedir al usuario "Ingresa la palabra i+1"
+//     AGREGAR palabra AL arreglo palabras
+// FIN PARA
+// resultado ← unir todas las palabras del arreglo con espacio
+// MOSTRAR "Resultado: " + resultado EN UNA ALERTA
+// FIN
+
+
+//JAVASCRIPT
+function concatenarPalabrasJoin() {
+    let palabras = [];
+    let cantidad = parseInt(prompt("¿Cuántas palabras quieres ingresar?"));
+
+    for (let i = 0; i < cantidad; i++) {
+        let palabra = prompt(Ingresa la palabra ${i + 1}:);
+        palabras.push(palabra);
+    }
+
+    // Concatenar palabras
+    let resultado = palabras.join(" ");
+    alert(Resultado: ${resultado});
+}
+
+concatenarPalabrasJoin();
 
 
 // 22. Calcular el cubo de cada número del arreglo
